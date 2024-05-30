@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const App: FC = () => {
-  return <div>typing-tutorial-proj</div>;
+  return <div>SaTyping</div>;
 };
 
 export default App;

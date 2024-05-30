@@ -1,8 +1,13 @@
 {
-  "name": "typing-tutorial-proj",
-  "private": true,
-  "version": "0.0.0",
+  "name": "SaTyping",
+  "description": "登竜門Hack 関西 2024のWeb講座で使用するリポジトリ",
+  "author": "Yuma-Satake",
+  "version": "0.0.1",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toryumon-pj/hack-kansai-2024-web-tutorial.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

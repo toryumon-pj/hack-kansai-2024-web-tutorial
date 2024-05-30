@@ -1,8 +1,8 @@
-# 登竜門 Hack 関西 Web チュートリアルリポジトリ
+<p style="font-size: 30px; font-weight: bold">登竜門 Hack 関西 Web チュートリアルリポジトリ</p>
 
 ## 概要
 
-`typing-tutorial-proj`というタイピングゲームを作成するプロジェクト
+`SaTyping`というタイピングゲームを作成するプロジェクト ~~（作成者の名前は佐竹です）~~
 
 ### 技術構成
 
@@ -14,9 +14,17 @@
 
 GetStarted とは、プロジェクトの環境構築を行うための手順です
 
+### ⓪ Prettier の導入
+
+VSCode に拡張機能として`Prettier`というフォーマッタ（コードを整形するツール）を導入して下さい
+
+方法についてはネット上に記事が沢山あるのでそれらを参照して下さい。
+
+[VSCode で Prettier を使う方法【設定必要です】](https://ralacode.com/blog/post/vscode-prettier/)
+
 ### ① Node.js のインストール
 
-以下のリンクから Node.js をインストールしてください
+以下のリンクから `Node.js` をインストールしてください
 
 [Node.js のインストールリンクはこちら](https://nodejs.org/ja/download/)
 
