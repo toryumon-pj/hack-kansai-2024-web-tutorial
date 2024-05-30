@@ -2,7 +2,7 @@ import { CircularProgress, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 
 /**
- * Loading表示
+ * LoadingPage
  */
 export const LoadingPage: FC = () => {
   return (

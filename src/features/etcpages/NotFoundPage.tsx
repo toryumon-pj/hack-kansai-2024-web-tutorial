@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 /**
- * NotFound表示
+ * NotFoundPage
  */
 export const NotFoundPage: FC = () => {
   const router = useNavigate();
