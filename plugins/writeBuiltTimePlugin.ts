@@ -1,35 +1,34 @@
+import { log } from 'console';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { resolve, join, dirname } from 'path';
+import { join } from 'path';
+import { Plugin } from 'vite';
 
 /**
  * 書き出したindex.htmlにビルド日時を埋め込むためのプラグイン
  */
-const writeBuiltTimePlugin = () => {
-  const modifyPath = (path: string) =>
-    path.replace(/^file:\/\//, '').replace(/\/timestampPlugin\.js$/, '');
-
-  const path = dirname(import.meta.url) ?? '';
-  const buildDir = resolve(modifyPath(path), 'dist');
+const writeBuiltTimePlugin = (buildDirProps: string): Plugin => {
+  // eslint-disable-next-line no-undef
+  const rootPath = process.cwd();
+  const buildDir = join(rootPath, buildDirProps);
   const indexPath = join(buildDir, 'index.html');
 
-  const timestampJST = JSON.stringify(
-    new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
-  );
-  const barStr = '-'.repeat(32);
-  console.log(
-    `${barStr}\n[WriteBuiltTimePlugin]\nBuild time: ${timestampJST}\nWrite to index.html✅\n${barStr}\n`
-  );
-
   return {
-    name: 'timestamp-plugin',
+    name: 'writeBuiltTimePlugin',
     closeBundle() {
       if (existsSync(indexPath)) {
+        const timestampJST = JSON.stringify(
+          new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
+        );
         let htmlContent = readFileSync(indexPath, 'utf-8');
         htmlContent = htmlContent.replace(
           `<!DOCTYPE html>`,
           `<!-- Build time: ${timestampJST} -->\n<!DOCTYPE html>`
         );
         writeFileSync(indexPath, htmlContent);
+        const barStr = '-'.repeat(32);
+        log(
+          `\n${barStr}\n[WriteBuiltTimePlugin]\nBuild time: ${timestampJST}\nWrite to index.html✅\n${barStr}\n`
+        );
       }
     },
   };
