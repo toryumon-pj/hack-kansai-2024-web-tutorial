@@ -1,7 +1,12 @@
 import { FC } from 'react';
+import { ProviderRoot } from './providers/ProviderRoot';
+import './global.css';
+import { RouterInstance } from './routes/RouterInstance';
 
-const App: FC = () => {
-  return <div>SaTyping</div>;
+export const App: FC = () => {
+  return (
+    <ProviderRoot>
+      <RouterInstance />
+    </ProviderRoot>
+  );
 };
-
-export default App;
