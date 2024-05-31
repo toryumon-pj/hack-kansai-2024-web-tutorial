@@ -16,7 +16,7 @@ const menuButtonArray: MenuItemType[] = [
     icon: <VideogameAssetIcon />,
   },
   {
-    label: 'ランキングを見る',
+    label: 'ランキングをみる',
     path: '/ranking',
     icon: <EmojiEventsIcon />,
   },
