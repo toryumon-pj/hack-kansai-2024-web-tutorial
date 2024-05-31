@@ -31,7 +31,6 @@ export const DashboardContainer: FC = () => {
       <Stack
         spacing={7}
         sx={{
-          p: 10,
           justifyContent: 'center',
           alignItems: 'center',
         }}
