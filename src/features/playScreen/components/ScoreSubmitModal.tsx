@@ -11,8 +11,8 @@ const style: SxProps = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   boxShadow: 10,
-  p: 6,
-  px: 8,
+  p: { xs: 4, md: 6 },
+  width: { xs: '100%', md: 'auto' },
   borderRadius: 5,
 };
 
@@ -34,7 +34,9 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
    * スコアを登録する処理
    */
   const handleSubmitScore = (): void => {
-    if (submitIsSuccess) return;
+    if (submitIsSuccess) {
+      router('/ranking');
+    }
     upsertScoreByName({ nickName, score });
     setSubmitIsSuccess(true);
     /**
@@ -77,10 +79,16 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
             label="ニックネーム"
             variant="filled"
             fullWidth
+            autoFocus
           />
-          <Stack direction="row" spacing={3}>
+          <Stack direction="row" justifyContent="center" spacing={3} sx={{ width: '100%' }}>
             {!submitIsSuccess ? (
-              <Button onClick={handleClose} variant="outlined" size="large">
+              <Button
+                onClick={handleClose}
+                variant="outlined"
+                size="large"
+                sx={{ width: '50%', whiteSpace: 'nowrap' }}
+              >
                 キャンセル
               </Button>
             ) : null}
@@ -89,6 +97,7 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
               disabled={isDisabledSubmitButton}
               variant="contained"
               size="large"
+              sx={{ width: '50%', whiteSpace: 'nowrap' }}
             >
               {buttonLabel}
             </Button>

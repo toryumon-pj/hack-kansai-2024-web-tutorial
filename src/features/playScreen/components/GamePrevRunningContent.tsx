@@ -30,8 +30,8 @@ export const GamePrevRunningContent: FC<Props> = ({
           <Button
             onClick={handleSubmitScore}
             variant="outlined"
-            size="large"
             startIcon={<EmojiEventsIcon />}
+            sx={{ whiteSpace: 'nowrap' }}
           >
             ランキングにとうろく
           </Button>
@@ -39,8 +39,8 @@ export const GamePrevRunningContent: FC<Props> = ({
         <Button
           onClick={handleGameStartClick}
           variant="contained"
-          size="large"
           startIcon={<VideogameAssetIcon />}
+          sx={{ whiteSpace: 'nowrap' }}
         >
           Start Game !!
         </Button>

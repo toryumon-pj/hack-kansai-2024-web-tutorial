@@ -11,12 +11,12 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
  */
 const menuButtonArray: MenuItemType[] = [
   {
-    label: 'プレイする',
+    label: 'プレイ',
     path: '/play-screen',
     icon: <VideogameAssetIcon />,
   },
   {
-    label: 'ランキングをみる',
+    label: 'ランキング',
     path: '/ranking',
     icon: <EmojiEventsIcon />,
   },

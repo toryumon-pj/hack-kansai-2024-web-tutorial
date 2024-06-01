@@ -29,7 +29,12 @@ export const MenuButtons: FC<Props> = ({ menuItems }) => {
           startIcon={icon}
           variant="contained"
           size="large"
-          sx={{ width: '20%' }}
+          sx={{
+            width: {
+              xs: '100%',
+              md: '20%',
+            },
+          }}
         >
           {label}
         </Button>

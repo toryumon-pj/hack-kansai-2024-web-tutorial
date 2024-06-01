@@ -26,13 +26,12 @@ export const GameInfoBox: FC<Props> = ({ infoArray }) => {
         return (
           <Stack
             key={label}
-            spacing={1}
+            spacing={2}
             sx={{
-              p: 4,
-              px: 6,
+              p: { xs: 4, md: 5 },
               border: '0.5px solid',
               borderLeft: isLastItem ? 'none' : '0.5px solid',
-              width: '80%',
+              width: '50%',
               borderRadius,
             }}
           >
