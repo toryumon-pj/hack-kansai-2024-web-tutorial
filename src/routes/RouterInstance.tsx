@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { DashboardPage } from '../features/dashboard/DashboardPage';
-import { NotFoundPage } from '../features/etcPages/NotFoundPage';
+import { NotFoundPage } from '../features/contentPages/NotFoundPage';
 import { RankingPage } from '../features/ranking/RankingPage';
 import { PlayScreenPage } from '../features/playScreen/PlayScreenPage';
 

@@ -1,5 +1,5 @@
 import { ReactNode, Suspense } from 'react';
-import { LoadingPage } from '../features/etcPages/LoadingPage';
+import { LoadingPage } from '../features/contentPages/LoadingPage';
 
 type Props = {
   children: ReactNode;
