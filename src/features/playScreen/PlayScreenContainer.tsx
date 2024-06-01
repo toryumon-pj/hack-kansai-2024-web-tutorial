@@ -6,6 +6,7 @@ import { GameRunningContent } from './components/GameRunningContent';
 import { GamePrevRunningContent } from './components/GamePrevRunningContent';
 import { CONST_GAME_TIME } from '../../const/gameSetting';
 import { getRandomWord } from './util/getRandomWord';
+import { ScoreSubmitModal } from './components/ScoreSubmitModal';
 
 /**
  * PlayScreen/container
@@ -16,6 +17,7 @@ export const PlayScreenContainer: FC = () => {
   const [score, setScore] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<number>(CONST_GAME_TIME);
   const [isGameRunning, setIsGameRunning] = useState<boolean>(false);
+  const [isOpenScoreSubmitModal, setIsOpenScoreSubmitModal] = useState<boolean>(false);
   const [isOpenSuccessSnackbar, setIsOpenSuccessSnackbar] = useState<boolean>(false);
   const timerRef = useRef<number>(0);
 
@@ -96,8 +98,16 @@ export const PlayScreenContainer: FC = () => {
     }
   };
 
+  /**
+   * ランキング登録ボタンのハンドリング
+   */
+  const handleSubmitScore = (): void => {
+    setIsOpenScoreSubmitModal(true);
+  };
+
   const scoreLabel = score < 10 ? `0${score.toString()}pt` : `${score.toString()}pt`;
   const remainingTimeLabel = timeLeft < 10 ? `0${timeLeft.toString()}s` : `${timeLeft.toString()}s`;
+  const isNotFirstGame = score > 0;
 
   /**
    * スタート前画面に表示するスコアと制限時間の表示の配列
@@ -114,24 +124,33 @@ export const PlayScreenContainer: FC = () => {
   ];
 
   return (
-    <LayoutContainer title="ぷれいがめん">
-      <Stack justifyContent="center" alignItems="center" sx={{ height: '100%' }}>
-        {!isGameRunning ? (
-          <GamePrevRunningContent
-            handleGameStartClick={handleGameStartClick}
-            gameInfoArray={gameInfoArray}
-          />
-        ) : (
-          <GameRunningContent
-            currentWord={currentWord}
-            currentScore={scoreLabel}
-            remainingTime={remainingTimeLabel}
-            successSnackbarOpen={isOpenSuccessSnackbar}
-            inputValue={inputValue}
-            handleInputChange={handleInputChange}
-          />
-        )}
-      </Stack>
-    </LayoutContainer>
+    <>
+      <LayoutContainer title="ぷれいがめん">
+        <Stack justifyContent="center" alignItems="center" sx={{ height: '100%' }}>
+          {!isGameRunning ? (
+            <GamePrevRunningContent
+              isNotFirstGame={isNotFirstGame}
+              gameInfoArray={gameInfoArray}
+              handleGameStartClick={handleGameStartClick}
+              handleSubmitScore={handleSubmitScore}
+            />
+          ) : (
+            <GameRunningContent
+              currentWord={currentWord}
+              currentScore={scoreLabel}
+              remainingTime={remainingTimeLabel}
+              successSnackbarOpen={isOpenSuccessSnackbar}
+              inputValue={inputValue}
+              handleInputChange={handleInputChange}
+            />
+          )}
+        </Stack>
+      </LayoutContainer>
+      <ScoreSubmitModal
+        isModalOpen={isOpenScoreSubmitModal}
+        score={score}
+        handleClose={() => setIsOpenScoreSubmitModal(false)}
+      />
+    </>
   );
 };
