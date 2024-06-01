@@ -2,7 +2,7 @@ import { Box, Button, Modal, Stack, SxProps, TextField, Typography } from '@mui/
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SA_TYPING_GAME_NICKNAME } from '../../../const/const';
-import { postSubmitScore } from '../util/postSubmitScore';
+import { upsertScoreByName } from '../util/upsertScoreByName';
 
 const style: SxProps = {
   position: 'fixed',
@@ -35,7 +35,7 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
    */
   const handleSubmitScore = (): void => {
     if (submitIsSuccess) return;
-    postSubmitScore({ nickName, score });
+    upsertScoreByName({ nickName, score });
     setSubmitIsSuccess(true);
     /**
      * ローカルストレージにニックネームを保存
