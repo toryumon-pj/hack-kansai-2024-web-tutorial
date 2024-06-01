@@ -32,7 +32,7 @@ export const Header: FC<Props> = ({ title }) => {
       }}
     >
       <Tooltip title="ホーム">
-        <Button onClick={handleClickHomeButton} variant="outlined">
+        <Button onClick={handleClickHomeButton} variant="outlined" size="small">
           <HomeIcon />
         </Button>
       </Tooltip>

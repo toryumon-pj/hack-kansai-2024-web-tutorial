@@ -15,14 +15,14 @@ export const LayoutContainer: FC<Props> = ({ children, title }) => {
     <Container maxWidth="lg">
       <Box
         sx={{
-          height: '5dvh',
+          height: '7dvh',
         }}
       >
         <Header title={title} />
       </Box>
       <Box
         sx={{
-          height: '90dvh',
+          height: '88dvh',
           bgcolor: 'primary.light',
           borderRadius: 10,
           p: 10,
