@@ -2,6 +2,7 @@ import { Box, Button, Modal, Stack, SxProps, TextField, Typography } from '@mui/
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SA_TYPING_GAME_NICKNAME } from '../../../const/const';
+import { postSubmitScore } from '../util/postSubmitScore';
 
 const style: SxProps = {
   position: 'fixed',
@@ -27,17 +28,24 @@ type Props = {
 export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose }) => {
   const router = useNavigate();
   const [nickName, setNickName] = useState<string>('');
+  const [submitIsSuccess, setSubmitIsSuccess] = useState<boolean>(false);
 
   /**
    * スコアを登録する処理
    */
   const handleSubmitScore = (): void => {
+    if (submitIsSuccess) return;
+    postSubmitScore({ nickName, score });
+    setSubmitIsSuccess(true);
     /**
      * ローカルストレージにニックネームを保存
      */
     localStorage.setItem(SA_TYPING_GAME_NICKNAME, nickName);
-    handleClose();
-    router('/ranking');
+
+    setTimeout(() => {
+      handleClose();
+      router('/ranking');
+    }, 3000);
   };
 
   /**
@@ -53,6 +61,11 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
    */
   const isDisabledSubmitButton = nickName.trim().length === 0;
 
+  /**
+   * ボタンのラベル
+   */
+  const buttonLabel = submitIsSuccess ? 'とうろくしました！' : 'ランキングにとうろく！';
+
   return (
     <Modal open={isModalOpen} onClose={handleClose}>
       <Box sx={style}>
@@ -66,16 +79,18 @@ export const ScoreSubmitModal: FC<Props> = ({ isModalOpen, score, handleClose })
             fullWidth
           />
           <Stack direction="row" spacing={3}>
-            <Button onClick={handleClose} variant="outlined" size="large">
-              キャンセル
-            </Button>
+            {!submitIsSuccess ? (
+              <Button onClick={handleClose} variant="outlined" size="large">
+                キャンセル
+              </Button>
+            ) : null}
             <Button
               onClick={handleSubmitScore}
               disabled={isDisabledSubmitButton}
               variant="contained"
               size="large"
             >
-              ランキングにとうろく！
+              {buttonLabel}
             </Button>
           </Stack>
         </Stack>
