@@ -26,7 +26,7 @@ export const RankingContainer: FC = () => {
    */
   useEffect(() => {
     (async () => {
-      const fetchedRankingList = await getRankingList();
+      const fetchedRankingList = await getRankingList(20);
       if (!fetchedRankingList) {
         setIsFetchError(true);
         return;
@@ -47,7 +47,12 @@ export const RankingContainer: FC = () => {
             </Button>
           </Stack>
         )}
-        <TableContainer>
+        <TableContainer
+          sx={{
+            height: '60vh',
+            overflowY: 'auto',
+          }}
+        >
           <Table>
             <TableHead>
               <TableRow>
