@@ -12,6 +12,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && tsc --noEmit",
+    "type_gen": "supabase gen types typescript --linked > ./src/types/database.types.ts && prettier --write ./src/types/database.types.ts",
     "prepare": "npx husky install"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
+    "@supabase/supabase-js": "^2.43.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"
