@@ -18,3 +18,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HACK_KANSAI_2024_WEB_TUTORIAL }}
           projectId: hack-kansai-2024-web-tutorial
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
