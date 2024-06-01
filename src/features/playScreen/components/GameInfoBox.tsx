@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 import { GameInfoBoxType } from '../types/GameInfoBoxType';
 
@@ -13,7 +13,7 @@ export const GameInfoBox: FC<Props> = ({ infoArray }) => {
   const infoArrayLength = infoArray.length;
 
   return (
-    <Stack direction="row" sx={{ minWidth: '500px' }}>
+    <Stack direction="row">
       {infoArray.map(({ label, value }, index) => {
         const isFirstItem = index === 0;
         const isLastItem = index === infoArrayLength - 1;
@@ -24,22 +24,25 @@ export const GameInfoBox: FC<Props> = ({ infoArray }) => {
         })();
 
         return (
-          <Box
+          <Stack
             key={label}
+            spacing={1}
             sx={{
               p: 4,
+              px: 6,
               border: '0.5px solid',
               borderLeft: isLastItem ? 'none' : '0.5px solid',
               width: '80%',
               borderRadius,
             }}
           >
-            <Typography variant="h6" sx={{ textAlign: 'center' }}>
+            <Typography variant="h5" sx={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
               {label}
-              <br />
+            </Typography>
+            <Typography variant="h6" sx={{ textAlign: 'center' }}>
               {value}
             </Typography>
-          </Box>
+          </Stack>
         );
       })}
     </Stack>
