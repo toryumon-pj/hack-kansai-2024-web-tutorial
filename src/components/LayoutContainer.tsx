@@ -25,6 +25,7 @@ export const LayoutContainer: FC<Props> = ({ children, title }) => {
           height: '90dvh',
           bgcolor: 'primary.light',
           borderRadius: 10,
+          p: 10,
         }}
       >
         {children}

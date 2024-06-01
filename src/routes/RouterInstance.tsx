@@ -2,6 +2,8 @@ import { FC, ReactNode } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { DashboardPage } from '../features/dashboard/DashboardPage';
 import { NotFoundPage } from '../features/etcPages/NotFoundPage';
+import { RankingPage } from '../features/ranking/RankingPage';
+import { PlayScreenPage } from '../features/playScreen/PlayScreenPage';
 
 type RouteItemType = {
   path: string;
@@ -16,6 +18,14 @@ export const RouterInstance: FC = () => {
     {
       path: '/',
       element: <DashboardPage />,
+    },
+    {
+      path: '/play-screen',
+      element: <PlayScreenPage />,
+    },
+    {
+      path: '/ranking',
+      element: <RankingPage />,
     },
     {
       path: '*',
