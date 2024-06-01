@@ -6,7 +6,7 @@ import { RankingRow } from '@/types/dbExportTypes/RankingRow';
  */
 export const getRankingList = async (): Promise<RankingRow[] | null> => {
   const { data, error } = await supabase
-    .from('game_scores')
+    .from('game_scores_table')
     .select('*')
     .order('score', { ascending: false });
   if (error) return null;

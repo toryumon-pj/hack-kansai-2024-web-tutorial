@@ -60,7 +60,7 @@ export const RankingContainer: FC = () => {
               {rankingList.map((row, index) => (
                 <TableRow key={row.score_id}>
                   <TableCell>{index + 1}</TableCell>
-                  <TableCell>{row.player_name}</TableCell>
+                  <TableCell>{row.player_nickname}</TableCell>
                   <TableCell>{row.score}pt</TableCell>
                 </TableRow>
               ))}

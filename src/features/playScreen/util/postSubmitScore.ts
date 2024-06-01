@@ -10,7 +10,7 @@ export const postSubmitScore = async ({
   nickName: string;
   score: number;
 }): Promise<void> => {
-  await supabase.from('game_scores').insert({
+  await supabase.from('game_scores_table').insert({
     player_name: nickName,
     score,
   });

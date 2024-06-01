@@ -28,24 +28,24 @@ export type Database = {
   };
   public: {
     Tables: {
-      game_scores: {
+      game_scores_table: {
         Row: {
           created_at: string;
-          player_name: string;
+          player_nickname: string;
           score: number;
-          score_id: number;
+          score_id: string;
         };
         Insert: {
           created_at?: string;
-          player_name?: string;
+          player_nickname?: string;
           score?: number;
-          score_id?: number;
+          score_id?: string;
         };
         Update: {
           created_at?: string;
-          player_name?: string;
+          player_nickname?: string;
           score?: number;
-          score_id?: number;
+          score_id?: string;
         };
         Relationships: [];
       };
