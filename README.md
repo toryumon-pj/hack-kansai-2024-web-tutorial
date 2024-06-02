@@ -1,5 +1,9 @@
 <p style="font-size: 30px; font-weight: bold">登竜門 Hack 関西 Web チュートリアルリポジトリ</p>
 
+> 公開 URL はこちら！！
+
+https://hack-kansai-2024-web-tutorial.web.app
+
 ## 概要
 
 `SaTyping`というタイピングゲームを作成するプロジェクト ~~（作成者の名前は佐竹です）~~
@@ -8,7 +12,7 @@
 
 - Frontend：React + TypeScript
 - Backend：Supabase
-- Hosting: Vercel
+- Hosting: Firebase
 
 ## Getting Started
 
