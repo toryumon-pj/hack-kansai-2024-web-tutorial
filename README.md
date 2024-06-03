@@ -56,6 +56,15 @@ node -v
 npm install
 ```
 
+### ④ env の設定
+
+以下のコマンドを実行し、作成された`.env`ファイルの中身を書き換えてください
+（講習の中では`.env`ファイルの中身は配布します）
+
+```env
+cp .env.template .env
+```
+
 ### ④ 開発用サーバーの起動
 
 開発用サーバの起動（<a src="http://localhost:3000/">http://localhost:3000/</a> で画面が確認できる様になります）
